@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearRecycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_item"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/com_facebook_profile_picture_blank_portrait" />
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Cabo Daciolo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_item" />
+
+            <TextView
+                android:id="@+id/txtNoticias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Benevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado ao partido Patriota. Em 2014, foi eleito deputado federal pelo Rio de  Janeiro. Expulso do PSOL em 2015, foi filiado ao  Avante e, atualmente, está filiado ao Patriota.\n  Glóriaaaa a Deuxxx!Benevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado aoBenevenuto Daciolo Fonseca dos Santos, mais  conhecido como Cabo Daciolo, é um bombeiro militar e político brasileiro filiado ao"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_user_like"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearRecycler"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_favorite_border_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/imageCompartilhar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearRecycler"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_share_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

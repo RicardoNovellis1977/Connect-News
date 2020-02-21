@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_connectnews"
+            android:title="ConnectNews" />
+        <item
+            android:id="@+id/nav_myfavorites"
+            android:icon="@drawable/ic_my_favorite_24dp"
+            android:title="Meus Favoritos" />
+        <item
+            android:id="@+id/nav_preferences"
+            android:icon="@drawable/ic_preferences_24dp"
+            android:title="Preferencias" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile_black_24dp"
+            android:title="Perfil" />
+
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Sair" />
+    </group>
+
+
+</menu>
