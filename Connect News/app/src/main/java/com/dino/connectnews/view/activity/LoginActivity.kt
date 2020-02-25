@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.dino.connectnews.R
 import com.dino.connectnews.data.network.ConfiguracaoFirebase
 import com.dino.connectnews.data.model.Usuario
@@ -37,7 +39,7 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
     private var RC_SIGN_IN: Int = 9001
     private lateinit var loginButton: LoginButton
     private lateinit var callbackManager: CallbackManager
-
+    lateinit var toolbar : Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,18 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
         val textRegister: TextView = textRegisterNow
         val buttonLogin: Button = button_login
         auth = FirebaseAuth.getInstance()
+
+        toolbar = findViewById(R.id.toolbarLogin)
+        toolbar.navigationIcon = ContextCompat.getDrawable(this,R.drawable.abc_ic_ab_back_mtrl_am_alpha)
+
+        toolbar.setNavigationOnClickListener(View.OnClickListener {
+            startActivity(
+                Intent(
+                    applicationContext,
+                    MainActivity::class.java
+                )
+            )
+        })
 
         buttonLogin.setOnClickListener {
 
@@ -183,8 +197,8 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
 //                        val favoritos : ArrayList<Article>? = usuario.favoritos
 //                        usuario = Usuario(nome, email, "Google", id, favoritos)
 //
-                        nav_email.text = email
-                        nav_nome.text = nome
+//                        nav_email.text = email
+//                        nav_nome.text = nome
 //                        if (user?.uid != usuario.id){
 //                            ConfiguracaoFirebase.salvar(usuario)
 //                        }

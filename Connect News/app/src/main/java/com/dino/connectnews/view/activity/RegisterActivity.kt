@@ -1,14 +1,18 @@
 package com.dino.connectnews.view.activity
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.dino.connectnews.R
+import com.dino.connectnews.data.model.Usuario
 import com.dino.connectnews.data.network.Base64Custom
 import com.dino.connectnews.data.network.ConfiguracaoFirebase
-import com.dino.connectnews.data.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
@@ -19,10 +23,23 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var usuario = Usuario()
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        toolbar = findViewById(R.id.toolbarRegister)
+        toolbar.navigationIcon = ContextCompat.getDrawable(this,R.drawable.abc_ic_ab_back_mtrl_am_alpha)
+
+        toolbar.setNavigationOnClickListener(View.OnClickListener {
+            startActivity(
+                Intent(
+                    applicationContext,
+                    LoginActivity::class.java
+                )
+            )
+        })
 
         btn_register_now.setOnClickListener {
             val textoNome: String = textoNome.text.toString()

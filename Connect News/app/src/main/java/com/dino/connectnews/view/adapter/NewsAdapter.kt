@@ -77,6 +77,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             if (article.urlToImage != null && !article.urlToImage.equals("")) {
                 Picasso.get().load(article.urlToImage)
                     .resize(500,500)
+                    .error(R.drawable.erro_loading)
                     .placeholder(R.drawable.load_holder)
                     .into(imagem)
 

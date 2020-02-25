@@ -5,17 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".view.activity.DetaheActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetalhe"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Detalhes da Noticia" />
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarDetalhe" />
 </androidx.constraintlayout.widget.ConstraintLayout>

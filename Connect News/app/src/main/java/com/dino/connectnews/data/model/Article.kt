@@ -3,7 +3,7 @@ package com.dino.connectnews.data.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Article (
+data class Article (
     var chave: String? = null,
     @SerializedName("source")
     @Expose

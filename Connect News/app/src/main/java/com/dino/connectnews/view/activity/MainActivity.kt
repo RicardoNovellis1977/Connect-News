@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -13,10 +14,11 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.dino.connectnews.R
 import com.dino.connectnews.view.adapter.CategoryPageAdapter
-import com.dino.connectnews.viewmodel.HomeViewModel
+import com.dino.connectnews.view.fragment.HomeFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tabLayout = findViewById(R.id.tabs)
         val navView: NavigationView = findViewById(R.id.nav_view)
         navView.setNavigationItemSelectedListener(this)
+        val headerView : View = navView.getHeaderView(0)
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -56,12 +59,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         viewPager?.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(viewPager))
 
-//        val user = auth.currentUser
-//        val email: String = user?.email.toString()
-//        val nome = user?.displayName.toString()
-//
-//        nav_nome.setText(nome)
-//        nav_email.setText(email)
+        val user = auth.currentUser
+        val email : String = user?.email.toString()
+        val nome = user?.displayName.toString()
+
+       headerView.nav_nome.setText(nome)
+        headerView.nav_email.setText(email)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -103,8 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun criarCategorias(): List<Fragment>? {
         val fragments: ArrayList<Fragment> = ArrayList<Fragment>()
-        val homeFragment : HomeViewModel =
-            HomeViewModel()
+        val homeFragment : HomeFragment = HomeFragment()
         fragments.add(homeFragment.newInstance("business"))
         fragments.add(homeFragment.newInstance("entertainment"))
         fragments.add(homeFragment.newInstance("general"))
