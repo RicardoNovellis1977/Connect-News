@@ -18,16 +18,17 @@ import com.dino.connectnews.viewmodel.HomeViewModel
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterNews: NewsAdapter
     private lateinit var refreshLayout: SwipeRefreshLayout
-    var PAGE = 1
+    var page = 1
 
     fun newInstance(categoria: String?): HomeFragment {
         val args = Bundle()
-        val fragment: HomeFragment = HomeFragment()
+        val fragment = HomeFragment()
         args.putString("categoria", categoria)
-        fragment.setArguments(args)
+        fragment.arguments = args
         return fragment
     }
     var category: String? = null
@@ -44,7 +45,8 @@ class HomeFragment : Fragment() {
         recyclerView = root.findViewById(R.id.recycler_news)
         category = this.arguments?.getString("categoria")
 
-        homeViewModel.getNews(category!!, PAGE).observe(this, Observer { news ->
+        homeViewModel.getNews(category!!, page).observe(this, Observer { news ->
+
             if (news == null) {
                 //Toast.makeText(context, " Verifique sua conexão :( !", Toast.LENGTH_LONG).show()
             } else {
@@ -71,24 +73,24 @@ class HomeFragment : Fragment() {
                 val totalItemCount = layoutManager!!.itemCount
                 val lastVisible = layoutManager.findLastVisibleItemPosition()
                 val endHasBeenReached = lastVisible + 5 >= totalItemCount
-                if (totalItemCount > 0 && endHasBeenReached && PAGE < 2) {
-                    PAGE++
-                    homeViewModel.getNews(category!!, PAGE)
+                if (totalItemCount > 0 && endHasBeenReached && page < 2) {
+                    page++
+                    homeViewModel.getNews(category!!, page)
                         .observe(this@HomeFragment, Observer { news ->
                             if (news == null) {
                                 Toast.makeText(context, "Você esta off line", Toast.LENGTH_LONG)
                                     .show()
                             } else {
                                 adapterNews.adicioarNews(news.articles)
-                                Toast.makeText(context, "pag 2", Toast.LENGTH_LONG).show()
+                                //Toast.makeText(context, "pag 2", Toast.LENGTH_LONG).show()
                             }
                         })
                 }
             }
         })
         refreshLayout.setOnRefreshListener {
-            PAGE = 1
-            homeViewModel.getNews(category!!, PAGE)
+            page = 1
+            homeViewModel.getNews(category!!, page)
                 .observe(this@HomeFragment, Observer { news ->
                     if (news == null) {
                         Toast.makeText(context, "Você esta off line", Toast.LENGTH_LONG).show()
@@ -102,7 +104,7 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    fun initRecyclerView(){
+    private fun initRecyclerView(){
         recyclerView.adapter = adapterNews
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.hasFixedSize()

@@ -1,0 +1,2 @@
+rootProject.name='Leitor de BarCode'
+include ':app'

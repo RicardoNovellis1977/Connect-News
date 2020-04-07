@@ -22,9 +22,10 @@ class RemoteDataSource {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
+
     fun getLoadNews(context: Context): Observable<ArrayList<Article>>? {
 
-        var article: ArrayList<Article>? = null
+        var article: ArrayList<Article>?
         val mPrefs = context.getSharedPreferences("article", 0)
         val gson = Gson()
         val json = mPrefs.getString("myJson", "")

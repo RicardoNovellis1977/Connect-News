@@ -80,8 +80,8 @@ class AdapterFavorito : RecyclerView.Adapter<AdapterFavorito.ViewHolder> {
 
             if (article.urlToImage != null && !article.urlToImage.equals("")) {
                 Picasso.get().load(article.urlToImage)
-                    .error(R.drawable.ic_logotop)
-                    .placeholder(R.drawable.ic_logotop)
+                    .error(R.drawable.image_error)
+                    .placeholder(R.drawable.load_holder)
                     .into(imagem)
             } else {
                 imagem?.setVisibility(View.GONE)

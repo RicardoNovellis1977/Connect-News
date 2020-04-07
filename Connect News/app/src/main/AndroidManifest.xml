@@ -16,16 +16,16 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.dino.connectnews.view.activity.FavoritoActivity"></activity>
         <activity android:name="com.dino.connectnews.view.activity.DetaheActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="fullSensor"/>
         <activity android:name="com.dino.connectnews.view.activity.RegisterActivity" />
         <activity android:name="com.dino.connectnews.view.activity.LoginActivity" />
         <activity
             android:name="com.dino.connectnews.view.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar1"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="fullSensor"/>
         <activity
             android:name="com.dino.connectnews.view.activity.SplahActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
